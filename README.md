@@ -1,3 +1,3 @@
 # DevConnector
 
-> Small social network app built with the MERN stack.
+Small social network app built with the MERN stack.
