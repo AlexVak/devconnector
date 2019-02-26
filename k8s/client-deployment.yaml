@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devconnector-client-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: devconnector-client
+  template:
+    metadata:
+      labels:
+        component: devconnector-client
+    spec:
+      containers:
+        - name: devconnector-client
+          image: alexvak/devconnector-client
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: 100m

@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: devconnector-alexvak-com-tls
+spec:
+  secretName: devconnector-alexvak-com
+  issuerRef:
+    name: devconnector-letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: devconnector.alexvak.com
+  dnsNames:
+    - devconnector.alexvak.com
+    - www.devconnector.alexvak.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - devconnector.alexvak.com
+          - www.devconnector.alexvak.com
