@@ -1,4 +1,5 @@
 node_modules
 keys_dev.js
+coverage
 .DS_Store
 package-lock.json
