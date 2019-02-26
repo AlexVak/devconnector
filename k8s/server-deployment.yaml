@@ -18,6 +18,8 @@ spec:
           ports:
             - containerPort: 5000
           env:
+            - name: NODE_ENV
+              value: production
             - name: MONGO_URI
               valueFrom:
                 secretKeyRef:
