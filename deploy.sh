@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 docker build -t alexvak/devconnector-client:latest -t alexvak/devconnector-client:$SHA -f ./client/Dockerfile ./client
 docker build -t alexvak/devconnector-server:latest -t alexvak/devconnector-server:$SHA -f ./server/Dockerfile ./server
 

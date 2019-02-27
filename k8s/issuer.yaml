@@ -1,11 +1,11 @@
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: ClusterIssuer
 metadata:
-  name: devconnector-letsencrypt-prod
+  name: devcon-letsencrypt-prod
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: "avakarchuk@me.com"
     privateKeySecretRef:
-      name: devconnector-letsencrypt-prod
+      name: devcon-letsencrypt-prod
     http01: {}

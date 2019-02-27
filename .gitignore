@@ -1,4 +1,6 @@
+.idea
 node_modules
+k8s_manual
 keys_dev.js
 coverage
 .DS_Store

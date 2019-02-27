@@ -6,13 +6,11 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
-const cors = require("cors");
 
 const app = express();
-app.use(cors);
 
 // Body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 //DB Config
@@ -20,9 +18,9 @@ const db = require("./config/keys").mongoURL;
 
 //Connect to MongoDB
 mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log(err));
+    .connect(db, {useNewUrlParser: true})
+    .then(() => console.log("MongoDB Connected"))
+    .catch(err => console.log(err));
 
 //Passport middleware
 app.use(passport.initialize());
@@ -31,13 +29,15 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 //Use Routers
-app.use("/users", users);
-app.use("/profile", profile);
-app.use("/posts", posts);
-
-app.get("/", (req, res) => {
-  res.send("Hi");
-});
+if (process.env.NODE_ENV === "production") {
+    app.use("/users", users);
+    app.use("/profile", profile);
+    app.use("/posts", posts);
+} else {
+    app.use("/api/users", users);
+    app.use("/api/profile", profile);
+    app.use("/api/posts", posts);
+}
 
 const port = process.env.PORT || 5000;
 
