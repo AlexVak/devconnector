@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: devconnector-client-deployment
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       component: devconnector-client
