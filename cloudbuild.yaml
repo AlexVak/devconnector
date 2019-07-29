@@ -6,4 +6,4 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'push', 'eu.gcr.io/$PROJECT_ID/devconnector-server' ]
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'push', 'eu.gcr.io/$PROJECT_ID/devconnector-client','-f','./client/Dockerfile', './client' ]
+  args: [ 'push', 'eu.gcr.io/$PROJECT_ID/devconnector-client' ]
